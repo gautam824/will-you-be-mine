@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You? 💍</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-mood="default">
+
+  <div class="bg-particles" id="particles"></div>
+
+  <div class="scene">
+
+    <!-- COVER / ENVELOPE -->
+    <section class="stage active" id="stage-cover">
+      <div class="eyebrow">Something for you</div>
+      <div class="envelope-wrap">
+        <div style="position:relative;">
+          <div class="env-glow"></div>
+          <div class="envelope" id="envelope" onclick="openEnvelope()">
+            <div class="env-body"><div class="env-letter">💌</div></div>
+            <div class="env-flap"></div>
+          </div>
+        </div>
+        <div class="tap-label">Tap the card to open ✨</div>
+      </div>
+    </section>
+
+    <!-- QUESTION 1 -->
+    <section class="stage" id="stage-q1">
+      <div class="eyebrow">A question</div>
+      <div class="question-text">Will you become my life partner? 💍</div>
+      <div class="light-box">
+        <div class="light red" id="light-red-1"></div>
+        <div class="light green" id="light-green-1"></div>
+      </div>
+      <div class="face-slot" id="face-1"></div>
+      <div class="btn-row">
+        <button class="btn no" onclick="pressNo(1)">No</button>
+        <button class="btn yes" onclick="pressYes(1,'stage-q2','happy')">Yes</button>
+      </div>
+      <div class="hint" id="hint-1"></div>
+    </section>
+
+    <!-- QUESTION 2 -->
+    <section class="stage" id="stage-q2">
+      <div class="eyebrow">Wait, really</div>
+      <div class="question-text">Really, will you? 🥹</div>
+      <div class="light-box">
+        <div class="light red" id="light-red-2"></div>
+        <div class="light green" id="light-green-2"></div>
+      </div>
+      <div class="face-slot" id="face-2"></div>
+      <div class="btn-row">
+        <button class="btn no" onclick="pressNo(2)">No</button>
+        <button class="btn yes" onclick="pressYes(2,'stage-q3','happy')">Yes</button>
+      </div>
+      <div class="hint" id="hint-2"></div>
+    </section>
+
+    <!-- QUESTION 3 -->
+    <section class="stage" id="stage-q3">
+      <div class="eyebrow">One more time</div>
+      <div class="question-text">I can't believe it&hellip; is it real? 😳✨</div>
+      <div class="light-box">
+        <div class="light red" id="light-red-3"></div>
+        <div class="light green" id="light-green-3"></div>
+      </div>
+      <div class="face-slot" id="face-3"></div>
+      <div class="btn-row">
+        <button class="btn no" onclick="pressNo(3)">No</button>
+        <button class="btn yes" onclick="pressYes(3,'stage-calc','hearts')">Yes</button>
+      </div>
+      <div class="hint" id="hint-3"></div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="stage" id="stage-calc">
+      <div class="eyebrow">Now be honest</div>
+      <div class="question-text" style="margin-bottom:6px;">How much do you love me? 💗</div>
+      <div class="finale-sub" style="margin-bottom:18px;">Enter a number from 10 to 100,000</div>
+      <div class="calc-box">
+        <input type="number" class="calc-input" id="loveInput" placeholder="0" min="0" max="1000000">
+        <div><button class="btn yes" onclick="calcLove()">Calculate 💗</button></div>
+        <div class="calc-result" id="calc-result"></div>
+        <div class="jar-wrap" id="jarWrap">
+          <div class="jar-lid"></div>
+          <div class="jar" id="jar">
+            <div class="jar-fill" id="jarFill"></div>
+          </div>
+          <div class="jar-label" id="jarLabel">filling with love&hellip;</div>
+        </div>
+        <button class="btn yes continue-btn" id="continueBtn" onclick="goTo('stage-finale','finale')">See what's next 🎸</button>
+      </div>
+    </section>
+
+    <!-- FINALE -->
+    <section class="stage" id="stage-finale">
+      <div class="eyebrow">For you</div>
+      <div class="finale-title">He picked up his guitar&hellip; 🎸</div>
+      <div class="finale-sub">A quiet evening by the river, singing just for you 💕</div>
+
+      <div class="nature-scene" id="natureScene">
+        <div class="moon" id="moonEl"></div>
+        <div class="star" style="top:14px; left:20%;"></div>
+        <div class="star" style="top:30px; left:35%;"></div>
+        <div class="star" style="top:10px; left:60%;"></div>
+        <div class="star" style="top:40px; left:75%;"></div>
+        <div class="cloud" style="top:26px; left:15%; width:44px; height:14px;"></div>
+        <div class="cloud" style="top:44px; left:60%; width:56px; height:16px;"></div>
+        <div class="bird" style="animation-delay:0s;">🐦</div>
+        <div class="bird" style="top:50px; animation-delay:3s;">🐦</div>
+        <div class="bird" style="top:24px; animation-delay:6s;">🐦</div>
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-back2"></div>
+        <div class="mountain mountain-front"></div>
+        <div class="river"></div>
+        <div class="boat-scene">
+          <div class="boat"></div>
+          <div class="guitar-man">
+            <div class="gm-head"></div>
+            <div class="gm-body"></div>
+            <div class="gm-neck"></div>
+            <div class="gm-guitar"></div>
+            <div class="gm-arm"></div>
+            <div class="gm-legs"></div>
+            <div class="note" style="left:76px; top:44px; --dx:24px; animation-delay:0s;">🎵</div>
+            <div class="note" style="left:50px; top:38px; --dx:-20px; animation-delay:0.6s;">🎶</div>
+            <div class="note" style="left:92px; top:52px; --dx:38px; animation-delay:1.2s;">🎵</div>
+          </div>
+          <div class="her-person" id="herPerson">
+            <div class="her-hair"></div>
+            <div class="her-head"></div>
+            <div class="her-body"></div>
+            <div class="her-legs"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="finale-sub" style="margin-top:14px;" id="finaleCaption">Forever and always, yours. 💍✨</div>
+
+      <div class="sit-row" id="sitRow">
+        <button class="btn yes" onclick="sitTogether()">Sit along with me 🚣</button>
+      </div>
+      <div class="music-row" id="musicRow">
+        <button class="btn no" id="musicBtn" onclick="toggleMusic()">🔇 Pause music</button>
+      </div>
+      <button class="btn no replay-btn" onclick="location.reload()">Play it again from the start ↺</button>
+    </section>
+
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
